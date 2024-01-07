@@ -2,7 +2,7 @@ const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 
 function addTask(){
-    if(inputBox.value===""){
+    if(inputBox.value === ""){
         alert("You have to define a task!");
     }else{
         let li = document.createElement("li");
@@ -12,16 +12,16 @@ function addTask(){
         span.innerHTML = "\u00d7";
         li.appendChild(span);
     }
-    inputBox.value="";
+    inputBox.value = "";
     saveData();
 }
 
 listContainer.addEventListener("click",function(e){
-    if(e.target.tagName==="LI"){
+    if(e.target.tagName === "LI"){
         e.target.classList.toggle("checked");
         saveData();
     }
-    else if(e.target.tagName==="SPAN"){
+    else if(e.target.tagName === "SPAN"){
         e.target.parentElement.remove();
         saveData();
     }
@@ -32,6 +32,7 @@ function saveData(){
 }
 
 function showTask(){
-    listContainer.innerHTML=localStorage.getItem("data");
+    listContainer.innerHTML = localStorage.getItem("data");
 }
+
 showTask();
